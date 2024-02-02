@@ -16,14 +16,14 @@ export function SignIn() {
 
     const response = await postRequest('auth/login', formData);
 
-      if (response) {
+      if (response.statusCode == 200) {
         console.log('LOGED IN');
         console.log(response);
         dispatch(toggleModal('SIGN_IN'));
       } else {
         console.log('ERROR LOGED IN');
         console.log(response);
-        dispatch(toggleModal('SIGN_IN'));
+        // dispatch(toggleModal('SIGN_IN'));
       }
   };
 
