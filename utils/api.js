@@ -5,6 +5,7 @@ export const postRequest = async (endpoint, data) => {
     alert(`${baseURL}/${endpoint}`)
     alert(JSON.stringify(data));
     const response = await fetch(`${baseURL}/${endpoint}`, {
+      credentials: 'include',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
