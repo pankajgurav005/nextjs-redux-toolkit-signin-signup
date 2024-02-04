@@ -1,9 +1,9 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Providers } from "./redux/providers";
-import { stores } from "./redux/store";
-
-const inter = Inter({ subsets: ["latin"] });
+import { Providers } from "../redux/providers";
+import { stores } from "../redux/store";
+import { cookies } from 'next/headers'
+import { redirect } from 'next/navigation';
 
 export const metadata = {
   title: "Create Next App",
@@ -11,9 +11,14 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const cookieStore = cookies();
+  const isLoggedIn = cookieStore.get('access_token')?.value ? true : false;
+
+  console.log('isLoggedIn ======================', isLoggedIn);
+
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Providers>
           {children}
         </Providers>

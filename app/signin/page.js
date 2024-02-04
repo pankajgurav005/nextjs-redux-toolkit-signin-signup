@@ -1,9 +1,11 @@
+"use client"
 import React, { useState } from "react";
 import { postRequest } from "@/utils/api";
 import { useDispatch } from "react-redux";
+import { useRouter } from 'next/router';
 import { toggleModal } from "@/redux/slice";
 
-export function SignIn() {
+export default function SignIn() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: '',
@@ -19,11 +21,10 @@ export function SignIn() {
       if (response.statusCode == 200) {
         console.log('LOGED IN');
         console.log(response);
-        dispatch(toggleModal('SIGN_IN'));
+        alert('successfully signed in');
       } else {
         console.log('ERROR LOGED IN');
         console.log(response);
-        // dispatch(toggleModal('SIGN_IN'));
       }
   };
 
@@ -37,7 +38,8 @@ export function SignIn() {
 
   return(
     <>
-      <form onSubmit={handleSubmit}> 
+    <div className="h-dvh flex flex-wrap content-center justify-center">
+    <form className="w-96" onSubmit={handleSubmit}> 
         <label htmlFor="email" className="block text-sm font-medium text-gray-600">
           Username
         </label>
@@ -66,6 +68,7 @@ export function SignIn() {
           LogIn
         </button>
       </form>
+    </div>
     </>
   )
 } 

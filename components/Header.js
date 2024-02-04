@@ -1,14 +1,28 @@
 "use client"
 import React, {useState} from "react";
-import { closeModal, openModal, toggleModal } from "@/app/redux/slice";
+import { closeModal, openModal, toggleModal } from "@/redux/slice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
+import { postRequest } from "@/utils/api";
 
-export default function Header() {
+export default function Header({isLoggedIn}) {
   const dispatch = useDispatch();
 
   const handleModal = (payload) => {
     dispatch(toggleModal(payload));
+  }
+
+  const handleLogOut = async () => {
+    const response = await postRequest('auth/logout', {});
+
+    if (response.statusCode == 200) {
+      console.log('LOGED OUT');
+      console.log(response);
+      //dispatch(toggleModal('SIGN_IN'));
+    } else {
+      console.log('ERROR LOGED IN');
+      console.log(response);
+    }
   }
 
   return(
@@ -34,13 +48,23 @@ export default function Header() {
               </ul>
             </nav>
           </div>
+
           <div className="flex-1 flex flex-row justify-end">
-            <div className="rounded  cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4" onClick={() => handleModal('SIGN_IN')}>
+          { isLoggedIn ? (<>
+            <div className="rounded cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4" onClick={() => handleLogOut()}>
+              LogOut
+            </div>
+          </>) : (<>
+          <Link href={'/signin'}>
+            <div className="rounded  cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4">
               Signin
             </div>
+          </Link>
+            
             <div className="rounded cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4" onClick={() => handleModal('SIGN_UP')}>
               Signup
-            </div>
+            </div></>)}
+          
           </div>
         </div>
       </header>
