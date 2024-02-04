@@ -3,6 +3,7 @@ const baseURL = process.env.BASE_URL || 'http://localhost:4000';
 export const postRequest = async (endpoint, data) => {
   try {
     const response = await fetch(`${baseURL}/${endpoint}`, {
+      credentials: 'include',
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
