@@ -27,22 +27,19 @@ export default function Header({isLoggedIn}) {
 
   return(
     <>
-      <header className="h-16 fixed top-0 left-0 w-full bg-slate-800">
-        <div className="w-full flex-wrap h-16 flex justify-end content-center gap-5">
+      <header className="h-14 fixed w-4/5 bg-white">
+        <div className="flex-wrap h-14 flex justify-end content-center gap-5">
           <div className="container flex-1 mx-auto flex justify-between items-center">
-            <Link href="/" className="ml-5">
-              <span className="text-xl font-bold text-white">DEMO APP</span>
-            </Link>
-            <nav>
+            <nav className="ml-4">
               <ul className="flex space-x-4">
                 <li>
                   <Link href="/">
-                    <span className="text-white">Home</span>
+                    <span className="text-black font-bold">Home</span>
                   </Link>
                 </li>
                 <li>
                   <Link href="/about">
-                    <span className="text-white">About</span>
+                    <span className="text-black font-bold">About</span>
                   </Link>
                 </li>
               </ul>
@@ -60,10 +57,10 @@ export default function Header({isLoggedIn}) {
               Signin
             </div>
           </Link>
-            
+          <Link href={'/signup'}>
             <div className="rounded cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4" onClick={() => handleModal('SIGN_UP')}>
               Signup
-            </div></>)}
+            </div></Link></>)}
           
           </div>
         </div>

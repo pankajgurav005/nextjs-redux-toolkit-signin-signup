@@ -1,30 +1,29 @@
 "use client"
-import React, { useState } from "react";
-import { postRequest } from "@/utils/api";
-import { useDispatch } from "react-redux";
-import { useRouter } from 'next/router';
 import { toggleModal } from "@/redux/slice";
+import { postRequest } from "@/utils/api";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 
-export default function SignIn() {
+export default function Signup() {
   const dispatch = useDispatch();
   const [formData, setFormData] = useState({
-    email: '',
+    username: '',
     password: '',
+    email: ''
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
 
-    const response = await postRequest('auth/login', formData);
+    const response = await postRequest('v1/users', formData)
 
-    if (response.statusCode == 200) {
-      console.log('LOGED IN');
+    if (response) {
       console.log(response);
-      alert('successfully signed in');
+      dispatch(toggleModal('SIGN_UP'));
     } else {
-      console.log('ERROR LOGED IN');
       console.log(response);
+      dispatch(toggleModal('SIGN_UP'));
     }
   };
 
@@ -38,12 +37,22 @@ export default function SignIn() {
 
   return (
     <>
-      <div className="h-dvh flex flex-wrap content-center justify-center">
+      <div className="h-dvh flex flex-wrap justify-center content-center">
         <form className="w-96" onSubmit={handleSubmit}>
-          <h1 className="text-2xl font-bold text-center mb-4">SIGN IN</h1>
+          <h1 className="text-2xl font-bold text-center mb-4">SIGN UP</h1>
+          <label htmlFor="email" className="block text-sm font-medium text-gray-600">
+            Username
+          </label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            value={formData.username} onChange={handleChange}
+          />
 
           <label htmlFor="email" className="block mt-4 text-sm font-medium text-gray-600">
-            Username
+            Email
           </label>
           <input
             type="text"
@@ -67,7 +76,7 @@ export default function SignIn() {
             type="submit"
             className="mt-4 w-full bg-blue-500 font-semibold text-white p-2 rounded-md hover:bg-blue-600"
           >
-            LogIn
+            SignUp
           </button>
         </form>
       </div>
