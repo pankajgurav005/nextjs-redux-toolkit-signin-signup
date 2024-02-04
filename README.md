@@ -1,6 +1,6 @@
 # Next.js Redux Authentication
 
-Welcome to the Next.js Authentication project with Redux-Toolkit for state management! This project provides a solid foundation for implementing user sign-in and sign-up functionality using Next.js and Redux Toolkit.
+Welcome to the Next.js Authentication project, featuring Redux Toolkit for efficient state management! This project serves as a robust starting point for integrating user authentication, including sign-in and sign-up capabilities, using Next.js and Redux Toolkit. Additionally, it includes functionality for protected pages, ensuring secure access to authorized users.
 
 ## Table of Contents
 
