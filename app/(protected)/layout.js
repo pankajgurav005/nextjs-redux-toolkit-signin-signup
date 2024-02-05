@@ -1,4 +1,4 @@
-import Header from '@/components/Header';
+import Header from '@/app/components/Header';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 
@@ -12,8 +12,7 @@ export default function ProtectedPageLayout({ children }) {
 
   return (
     <>
-      <main className="min-h-screen">
-        <Header isLoggedIn={isLoggedIn} />
+      <main>
         <div>{children}</div>
       </main>
     </>

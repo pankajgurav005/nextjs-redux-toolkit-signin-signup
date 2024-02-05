@@ -1,12 +1,12 @@
 "use client"
 import React, { useReducer, useState } from 'react';
 import Image from "next/image";
-import Header from '@/components/Header';
+import Header from '@/app/components/Header';
 import { useDispatch, useSelector } from 'react-redux';
-import ModalComponent from '@/components/Modal';
+import ModalComponent from '@/app/components/Modal';
 import { toggleModal } from '../redux/slice';
 import { SignIn } from '@/components/Signin';
-import { Signup } from '@/components/Signup';
+import { Signup } from '@/app/components/Signup';
 
 export function ModalManager() {
   const isSigninModal = useSelector((state) => state.isSigninModal);

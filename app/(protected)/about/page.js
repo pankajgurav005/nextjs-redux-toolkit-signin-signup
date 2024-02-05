@@ -1,10 +1,10 @@
 import Link from "next/link";
-import Header from "@/components/Header";
+import Header from "@/app/components/Header";
 
 export default function About() {
   return(
     <>
-      <div className="mt-16">Test About Page</div>
+      <div className="mt-16">THIS IS ABOUT PAGE</div>
     </>
   )
 }

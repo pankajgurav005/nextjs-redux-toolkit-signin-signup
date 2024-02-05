@@ -4,8 +4,8 @@ import { Providers } from "../redux/providers";
 import { stores } from "../redux/store";
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation';
-import Sidebar from '@/components/Sidebar';
-import Header from '@/components/Header';
+import Sidebar from '@/app/components/Sidebar';
+import Header from '@/app/components/Header';
 
 
 export const metadata = {
@@ -16,8 +16,6 @@ export const metadata = {
 export default function RootLayout({ children }) {
   const cookieStore = cookies();
   const isLoggedIn = cookieStore.get('access_token')?.value ? true : false;
-
-  console.log('isLoggedIn ======================', isLoggedIn);
 
   return (
     <html lang="en">

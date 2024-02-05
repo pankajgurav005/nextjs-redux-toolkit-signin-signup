@@ -4,9 +4,11 @@ import { closeModal, openModal, toggleModal } from "@/redux/slice";
 import { useDispatch } from "react-redux";
 import Link from "next/link";
 import { postRequest } from "@/utils/api";
+import { useRouter } from "next/navigation";
 
 export default function Header({isLoggedIn}) {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const handleModal = (payload) => {
     dispatch(toggleModal(payload));
@@ -18,6 +20,7 @@ export default function Header({isLoggedIn}) {
     if (response.statusCode == 200) {
       console.log('LOGED OUT');
       console.log(response);
+      router.push('/')
       //dispatch(toggleModal('SIGN_IN'));
     } else {
       console.log('ERROR LOGED IN');
