@@ -1,16 +1,20 @@
+import Link from "next/link"
+
 export default function Noaccess() {
   const redirectToLogin = () => {
 
   }
   return(
     <>
-      <div className="h-screen flex flex-wrap flex-col justify-center align-middle content-center">
-        <span className="text-2xl font-bold text-center">NO ACCESS!!!!</span>
-        <span className="font-bold">PLEASE LOGIN TO CHEK THIS PAGE</span>
-        {/* <div onClick={redirectToLogin} className="text-center">
-          <button className="rounded cursor-pointer uppercase h-8 text-sm bg-slate-400 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4">LOGIN</button>
-        </div> */}
+      <div className="flex flex-wrap content-center flex-col" style={{ height: '90vh', width: '95vw', textAlign: 'center' }}>
+      <h1 className="text-2xl text-black font-bold">404 - Page Not Found</h1>
+      <p className="text-xl text-black">Sorry, the page you are looking for might not exist.</p>
+      <div className="text-center flex flex-wrap justify-center">
+      <Link className="mt-4 rounded cursor-pointer uppercase h-8 text-sm bg-slate-800 w-24 text-white font-semibold flex flex-wrap justify-center content-center mr-4" href="/">
+        Home
+      </Link>
       </div>
+    </div>
     </>
   )
 }
