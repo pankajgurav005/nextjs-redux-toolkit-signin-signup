@@ -45,6 +45,11 @@ export default function Header({isLoggedIn}) {
                     <span className="text-black font-bold">About</span>
                   </Link>
                 </li>
+                <li>
+                  <Link href="/profile">
+                    <span className="text-black font-bold">Profile</span>
+                  </Link>
+                </li>
               </ul>
             </nav>
           </div>

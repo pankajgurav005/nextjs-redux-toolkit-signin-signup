@@ -21,6 +21,9 @@ export default function Signup() {
     if (response) {
       console.log(response);
       dispatch(toggleModal('SIGN_UP'));
+      if (response.statusCode == 400) {
+        alert(response.error[0])
+      }
     } else {
       console.log(response);
       dispatch(toggleModal('SIGN_UP'));
@@ -37,7 +40,7 @@ export default function Signup() {
 
   return (
     <>
-      <div className="h-dvh flex flex-wrap justify-center content-center">
+      <div className="flex flex-wrap justify-center content-center">
         <form className="w-96" onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center mb-4">SIGN UP</h1>
           <label htmlFor="email" className="block text-sm font-medium text-gray-600">
@@ -49,6 +52,28 @@ export default function Signup() {
             name="username"
             className="mt-1 p-2 border border-gray-300 rounded-md w-full"
             value={formData.username} onChange={handleChange}
+          />
+
+          <label htmlFor="first_name" className="block text-sm font-medium text-gray-600">
+            First Name
+          </label>
+          <input
+            type="text"
+            id="first_name"
+            name="first_name"
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            value={formData.first_name} onChange={handleChange}
+          />
+
+          <label htmlFor="last_name" className="block text-sm font-medium text-gray-600">
+            Last Name
+          </label>
+          <input
+            type="text"
+            id="last_name"
+            name="last_name"
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full"
+            value={formData.last_name} onChange={handleChange}
           />
 
           <label htmlFor="email" className="block mt-4 text-sm font-medium text-gray-600">

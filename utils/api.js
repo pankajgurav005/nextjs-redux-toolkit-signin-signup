@@ -19,3 +19,15 @@ export const postRequest = async (endpoint, data) => {
     throw error;
   }
 };
+
+export async function getData(endpoint, access_token) {
+  console.log(`${baseURL}/${endpoint}`)
+  const res = await fetch(`${baseURL}/${endpoint}`, {
+    method: "GET",
+    headers: {
+      'Authorization': `Bearer ${access_token}`,
+      'credentials': 'include',
+    },
+  })
+  return res.json()
+}
