@@ -15,7 +15,7 @@ export default async function Profile() {
   }
   return(
     <>
-      <section style={{ height: '90vh' }} className="flex font-medium items-center justify-center">
+      <section className="flex font-medium items-center justify-center mt-20">
       <section className="w-64 mx-auto bg-[#20354b] rounded-2xl px-8 py-6 shadow-lg">
         <div className="flex items-center justify-between">
           <span className="text-gray-400 text-sm">2d ago</span>

@@ -2,11 +2,12 @@
 import React, { useState } from "react";
 import { postRequest } from "@/utils/api";
 import { useDispatch } from "react-redux";
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import { toggleModal } from "@/redux/slice";
 
 export default function SignIn() {
   const dispatch = useDispatch();
+  const router = useRouter();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -22,6 +23,7 @@ export default function SignIn() {
       console.log('LOGED IN');
       console.log(response);
       alert('successfully signed in');
+      router.push('/');
     } else {
       console.log('ERROR LOGED IN');
       console.log(response);
@@ -38,7 +40,7 @@ export default function SignIn() {
 
   return (
     <>
-      <div className="h-dvh flex flex-wrap content-center justify-center">
+      <div style={{ height: '90vh' }} className="flex flex-wrap content-center justify-center">
         <form className="w-96" onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center mb-4">SIGN IN</h1>
 

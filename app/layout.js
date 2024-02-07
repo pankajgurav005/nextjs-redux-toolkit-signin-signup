@@ -23,10 +23,10 @@ export default function RootLayout({ children }) {
         <Providers>
           <main className="min-h-screen">
             <div className='flex flex-wrap'>
-              <div className='w-1/5 h-dvh bg-slate-700'>
+              {/* <div className='w-1/5 h-dvh bg-slate-700'>
                 <Sidebar />
-              </div>
-              <div className='w-4/5'>
+              </div> */}
+              <div>
                 <Header isLoggedIn={isLoggedIn} />
                 <div className="mt-16 ml-4">
                   {children}
