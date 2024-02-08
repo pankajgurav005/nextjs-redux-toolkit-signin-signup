@@ -40,7 +40,7 @@ export default function Signup() {
 
   return (
     <>
-      <div className="flex flex-wrap justify-center content-center">
+      <div style={{ height: '90vh', width: '95vw' }} className="flex flex-wrap justify-center content-center">
         <form className="w-96" onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center mb-4">SIGN UP</h1>
           <label htmlFor="email" className="block text-sm font-medium text-gray-600">

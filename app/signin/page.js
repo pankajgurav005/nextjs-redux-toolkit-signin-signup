@@ -40,7 +40,7 @@ export default function SignIn() {
 
   return (
     <>
-      <div style={{ height: '90vh' }} className="flex flex-wrap content-center justify-center">
+      <div style={{ height: '90vh', width: '95vw' }} className="flex flex-wrap content-center justify-center">
         <form className="w-96" onSubmit={handleSubmit}>
           <h1 className="text-2xl font-bold text-center mb-4">SIGN IN</h1>
 
